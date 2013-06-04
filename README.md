@@ -28,7 +28,7 @@ share_data = {
   :title => 'test',
   :data  => 'hello! Chrome!!'
 }.to_json
-channel_ids = ['your_channel_id', your_channel_id2]
+channel_ids = ['your_channel_id', 'your_channel_id2']
 
 # Sends notification
 gcmc.send_notification(channel_ids, 'subchannel_id', share_data)

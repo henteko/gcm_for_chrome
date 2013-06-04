@@ -3,7 +3,9 @@ rvm:
   - 1.9.2
   - 1.9.3
   - 2.0.0
-
+before_install:
+  - bundle install
+script: rspec spec
 notifications:
   emails:
     - henteko07@gmail.com 
