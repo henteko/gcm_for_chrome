@@ -1,4 +1,5 @@
 # Google Cloud Messaging for Chrome (GCM for Chrome)
+[![Build Status](https://travis-ci.org/henteko/gcm_for_chrome.png?branch=master)](https://travis-ci.org/henteko/gcm_for_chrome)  
 
 GCM for Chrome sends notifications to Chrome extensions via [GCM for Chrome](http://developer.chrome.com/apps/cloudMessaging.html)
 
