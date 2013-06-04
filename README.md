@@ -1,6 +1,6 @@
 # Google Cloud Messaging for Chrome (GCM for Chrome)
 
-GCM for Chrome sends notifications to Chrome extensions via (GCM for Chrome)[http://developer.chrome.com/apps/cloudMessaging.html]
+GCM for Chrome sends notifications to Chrome extensions via [GCM for Chrome](http://developer.chrome.com/apps/cloudMessaging.html)
 
 
 ## Installation
