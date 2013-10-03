@@ -8,16 +8,16 @@ class GcmForChrome
   NOTIFICATION_URL  = 'https://www.googleapis.com/gcm_for_chrome/v1/messages'
   REFRESH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
-  def initialize()
+  def initialize(client_id = nil, client_secret = nil, refresh_token = nil)
     @access_token = nil
     @access_token_expires_at = nil
-    @client_id = nil
-    @client_secret = nil
-    @refresh_token = nil
+    @client_id = client_id
+    @client_secret = client_secret
+    @refresh_token = refresh_token
   end
 
   def send_notification(channel_ids, subchannel_id, payload)
-    if @access_token_expires_at < (Time.new + 10)
+    if @access_token_expires_at.nil? or (@access_token_expires_at and @access_token_expires_at < (Time.new + 10))
       set_access_token(@client_id, @client_secret, @refresh_token)
     end
     check_notification_value(channel_ids, subchannel_id, payload)
