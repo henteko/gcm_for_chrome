@@ -3,21 +3,21 @@ require 'json'
 
 describe GcmForChrome do
   ACCESS_TOKEN  = 'TESTACCESS_TOKEN'
-  CLIENT_ID     = 'TESTCLIENT_ID' 
+  CLIENT_ID     = 'TESTCLIENT_ID'
   CLIENT_SECRET = 'TESTCLIENT_SECRET'
   REFRESH_TOKEN = 'TESTREFRESH_TOKEN'
 
   before do
     RestClient.stub(:post) do |url, payload, header|
       {
-        access_token: ACCESS_TOKEN 
+        access_token: ACCESS_TOKEN
       }.to_json
     end
     @gcmc = GcmForChrome.new
   end
 
   it "get_access_token" do
-    access_token = @gcmc.get_access_token(CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN)
+    access_token, access_token_expires_at = @gcmc.get_access_token(CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN)
     access_token.should == ACCESS_TOKEN
   end
 
@@ -68,11 +68,6 @@ describe GcmForChrome do
     subchannel_id = '0'
     payload = {title: 'test'}.to_json
 
-    it "access_token blank" do
-      proc {
-        @gcmc.send_notification(channel_ids, subchannel_id, payload)
-      }.should raise_error
-    end
     it "channel_ids blank" do
       proc {
         @gcmc.send_notification([], subchannel_id, payload)
